@@ -1,0 +1,299 @@
+body {
+    font-family: "Helvetica Neue", sans-serif;
+    background: #f5f7fa;
+    margin: 0;
+    padding: 2em;
+    color: #333;
+  }
+  
+  h1 {
+    text-align: center;
+    margin-bottom: 0.2em;
+  }
+  
+  #totalCount {
+    text-align: center;
+    font-size: 1.1em;
+    margin-bottom: 0.8em;
+  }
+  
+  .controls, .month-nav {
+    text-align: center;
+    margin-bottom: 1em;
+  }
+  
+  .month-nav button {
+    font-size: 1.5em;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0 0.5em;
+  }
+  
+  #weekdayHeader {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: center;
+    font-weight: bold;
+    padding-bottom: 0.3em;
+    color: #555;
+  }
+  
+  #calendar {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 8px;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  
+  .day {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    min-height: 120px;
+    padding: 8px;
+    position: relative;
+    transition: transform 0.2s ease;
+  }
+  
+  .day:hover {
+    transform: scale(1.02);
+  }
+  
+  .sunday {
+    background-color: #ffe5e5;
+  }
+  
+  .saturday {
+    background-color: #e5f0ff;
+  }
+  
+  .count {
+    position: absolute;
+    bottom: 28px;
+    left: 8px;
+    font-size: 0.8em;
+    font-weight: bold;
+    color: red;
+  }
+  
+  .count.rank-1 {
+    background-color: gold;
+    color: white;
+    padding: 2px 4px;
+    border-radius: 4px;
+  }
+  
+  .count.rank-2 {
+    background-color: silver;
+    color: white;
+    padding: 2px 4px;
+    border-radius: 4px;
+  }
+  
+  .count.rank-3 {
+    background-color: #cd7f32;
+    color: white;
+    padding: 2px 4px;
+    border-radius: 4px;
+  }
+  
+  .date {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    font-size: 0.9em;
+    font-weight: bold;
+  }
+  
+  .comment {
+    position: absolute;
+    bottom: 8px;
+    left: 8px;
+    right: 8px;
+    font-size: 0.75em;
+    color: #666;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  .favicons {
+    position: absolute;
+    top: 28px;
+    right: 8px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    max-width: 100px;
+    max-height: 64px;
+    overflow: hidden;
+  }
+  
+  .favicons a img {
+    width: 16px;
+    height: 16px;
+    border-radius: 4px;
+  }
+  
+  input[type="file"], input[type="text"], button {
+    font-size: 1em;
+    margin: 0.3em;
+    padding: 0.3em 0.5em;
+  }
+  
+  #detailArea {
+    max-width: 1000px;
+    margin: 2em auto;
+    background: #fff;
+    padding: 1em;
+    border-radius: 8px;
+    display: none;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  #detailArea h2 {
+    font-size: 1.2em;
+    margin-bottom: 0.5em;
+  }
+  
+  #detailArea button {
+    float: right;
+    background: #ccc;
+    border: none;
+    padding: 4px 8px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: -0.5em;
+  }
+  
+  #detailList li {
+    margin-bottom: 1em;
+    padding-bottom: 0.5em;
+    border-bottom: 1px solid #eee;
+  }
+  
+  #detailList a {
+    font-weight: bold;
+    color: #0366d6;
+    text-decoration: none;
+  }
+  
+  .favicon {
+    width: 16px;
+    height: 16px;
+    vertical-align: text-bottom;
+    margin-right: 4px;
+  }
+  
+  .domain {
+    font-size: 0.85em;
+    color: #777;
+    margin-left: 1.2em;
+  }
+  
+  .tags {
+    margin-left: 1.2em;
+    margin-top: 0.3em;
+  }
+  
+  .tag {
+    display: inline-block;
+    background: #e0e0e0;
+    color: #333;
+    font-size: 0.75em;
+    padding: 2px 6px;
+    border-radius: 6px;
+    margin-right: 4px;
+    cursor: pointer;
+  }
+  
+  .tag:hover {
+    background: #d0d0d0;
+  }
+  
+  #domainRanking {
+    max-width: 1000px;
+    margin: 1em auto;
+    background: #fefefe;
+    padding: 1em;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  }
+  
+  #domainRanking h2 {
+    font-size: 1.1em;
+    margin-bottom: 0.5em;
+  }
+  
+  #domainRanking ul {
+    list-style: none;
+    padding-left: 0;
+    font-size: 0.95em;
+  }
+  
+  #domainRanking li img {
+    width: 16px;
+    height: 16px;
+    vertical-align: middle;
+    margin-right: 6px;
+  }
+  
+  #tagList {
+    max-width: 1000px;
+    margin: 1.5em auto;
+    padding: 1em;
+    background: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  }
+  
+  #tagList h2 {
+    margin-bottom: 0.5em;
+    font-size: 1.1em;
+  }
+  
+  #downloadBtn {
+    display: block;
+    margin: 1em auto;
+    padding: 0.5em 1em;
+    font-size: 1em;
+    background: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  
+  #downloadBtn:hover {
+    background: #45a049;
+  }
+  
+  #yearGrid .month-box {
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    padding: 1em;
+    cursor: pointer;
+    transition: transform 0.2s ease, background 0.2s ease;
+  }
+  
+  #yearGrid .month-box:hover {
+    background: #f0f8ff;
+    transform: scale(1.03);
+  }
+  
+  #yearGrid .month-name {
+    font-weight: bold;
+    font-size: 1.1em;
+    margin-bottom: 0.3em;
+  }
+  
+  #yearGrid .month-count {
+    color: #888;
+    font-size: 0.9em;
+  }
+  
